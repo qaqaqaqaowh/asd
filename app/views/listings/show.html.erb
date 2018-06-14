@@ -3,5 +3,6 @@
 <%= @listing.name %>
 
 <% if current_user == @listing.user %>
-	<%= link_to "Edit", edit_listing_path(l) %>
+	<%= link_to "Edit", edit_listing_path %>
+	<%= button_to "Delete", listing_path, method: :delete, data: {confirm: "u sure?"} %>
 <% end %>

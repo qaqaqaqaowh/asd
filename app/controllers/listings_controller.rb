@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+	before_action :set_listing, only: [:edit, :update, :show, :destroy]
+
 	def index
 		@listings = Listing.all
 	end
@@ -17,11 +19,9 @@ class ListingsController < ApplicationController
 	end
 	
 	def edit
-		@listing = Listing.find(params[:id])
 	end
 
 	def update
-		@listing = Listing.find(params[:id])
 		if @listing.update(listings_params)
 			redirect_to listings_path
 		else
@@ -30,11 +30,27 @@ class ListingsController < ApplicationController
 	end
 
 	def show
-		@listing = Listing.find(params[:id])
+	end
+
+	def destroy
+		if @listing.destroy
+			redirect_to listings_path
+		else
+			redirect_to @listing
+		end
+	end
+
+	def mylistings
+		@listings = current_user.listings
+		render "index"
 	end
 
 	private
 	def listings_params
 		params.require(:listing).permit(:name, :location, :price)
+	end
+
+	def set_listing
+		@listing = Listing.find(params[:id])
 	end
 end

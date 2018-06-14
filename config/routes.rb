@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   get "/signup" => "users#new", as: "sign_up"
   post "/signup" => "users#create"
+  get "/mylistings" => "listings#mylistings", as: "my_listings"
 end
 
 # resource: book || session || listing || user
