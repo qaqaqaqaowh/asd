@@ -1,0 +1,6 @@
+<%= form_for @listing do |l| %>
+	<%= l.text_field :name %>
+	<%= l.text_field :location %>
+	<%= l.number_field :price %>
+	<%= l.submit %>
+<% end %>

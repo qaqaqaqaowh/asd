@@ -1,0 +1,7 @@
+<h1>Sign Up</h1>
+<%= form_for @user do |u| %>
+	<%= u.text_field :email, placeholder: "Email" %>
+	<%= u.submit %>
+<% end %>
+
+<%= link_to "Login", login_path %>

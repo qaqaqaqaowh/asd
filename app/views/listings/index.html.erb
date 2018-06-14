@@ -1,0 +1,7 @@
+<h1>Listings Index</h1>
+
+<% @listings.each do |l| %>
+	<%= link_to l.name, listing_path(l) %><br>
+<% end %>
+
+<%= link_to "New Listing", new_listing_path %>

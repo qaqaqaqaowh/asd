@@ -1,0 +1,7 @@
+<h1>Show Listing</h1>
+
+<%= @listing.name %>
+
+<% if current_user == @listing.user %>
+	<%= link_to "Edit", edit_listing_path(l) %>
+<% end %>
